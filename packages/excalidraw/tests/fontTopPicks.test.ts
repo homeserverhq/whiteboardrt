@@ -24,7 +24,7 @@ describe("restore appState.fontTopPicks", () => {
           4, // unused id
           FONT_FAMILY.Assistant, // private
           FONT_FAMILY_FALLBACKS.Xiaolai,
-          FONT_FAMILY.Virgil, // deprecated, but still pickable
+          FONT_FAMILY.Virgil,
         ],
       } as any,
       null,
@@ -38,10 +38,10 @@ describe("restore appState.fontTopPicks", () => {
   it("caps at the strip slot count and nulls malformed input", () => {
     const many = [
       FONT_FAMILY.Nunito,
-      FONT_FAMILY.Excalifont,
       FONT_FAMILY["Lilita One"],
       FONT_FAMILY["Comic Shanns"],
       FONT_FAMILY.Virgil,
+      FONT_FAMILY.Cascadia,
     ];
     expect(
       restoreAppState({ fontTopPicks: many } as any, null).fontTopPicks,

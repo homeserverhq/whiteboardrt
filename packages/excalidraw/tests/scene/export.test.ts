@@ -608,7 +608,7 @@ describe("export inputs", () => {
       });
 
       expect(fonts.load).toHaveBeenCalledWith(
-        expect.stringContaining("Excalifont"),
+        expect.stringContaining("Virgil"),
         "hi",
       );
     });

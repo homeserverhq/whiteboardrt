@@ -41,7 +41,7 @@ import "./FontPicker.scss";
 // length must equal FONT_TOP_PICKS_SLOTS (enforced by fontTopPicks.test.ts)
 export const DEFAULT_FONTS = [
   {
-    value: FONT_FAMILY.Excalifont,
+    value: FONT_FAMILY.Virgil,
     icon: FreedrawIcon,
     text: t("labels.handDrawn"),
     testId: "font-family-hand-drawn",

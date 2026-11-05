@@ -113,7 +113,7 @@ describe("FontPicker", () => {
 
       await waitFor(() =>
         expect(h.state.fontTopPicks).toEqual([
-          FONT_FAMILY.Excalifont,
+          FONT_FAMILY.Virgil,
           FONT_FAMILY["Lilita One"],
           FONT_FAMILY["Comic Shanns"],
         ]),
@@ -150,7 +150,7 @@ describe("FontPicker", () => {
         expect(h.state.fontTopPicks).toEqual([
           FONT_FAMILY.Nunito,
           FONT_FAMILY["Comic Shanns"],
-          FONT_FAMILY.Excalifont,
+          FONT_FAMILY.Virgil,
         ]),
       );
       expect(getStripFamilies(container)).toEqual([

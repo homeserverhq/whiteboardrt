@@ -307,14 +307,14 @@ describe("cross-document rendering", () => {
       // included) through its own document's font faces
       await waitFor(() =>
         expect(defaultFontEditor.fonts.load).toHaveBeenCalledWith(
-          expect.stringContaining("Excalifont"),
-          expect.stringContaining("Excalidr"),
+          expect.stringContaining("Virgil"),
+          expect.stringContaining("Whiteboard"),
         ),
       );
       await waitFor(() =>
         expect(nunitoEditor.fonts.load).toHaveBeenCalledWith(
           expect.stringContaining("Nunito"),
-          expect.stringContaining("Excalidr"),
+          expect.stringContaining("Whiteboard"),
         ),
       );
 
@@ -324,7 +324,7 @@ describe("cross-document rendering", () => {
         expect.anything(),
       );
       expect(nunitoEditor.fonts.load).not.toHaveBeenCalledWith(
-        expect.stringContaining("Excalifont"),
+        expect.stringContaining("Virgil"),
         expect.anything(),
       );
     } finally {

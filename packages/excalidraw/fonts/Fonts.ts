@@ -172,7 +172,7 @@ export class Fonts {
     // rendered with a fallback font
     if (!sceneFamilies.includes(defaultFontFamily)) {
       sceneFamilies.push(defaultFontFamily);
-      charsPerFamily[defaultFontFamily] = new Set("Excalidraw");
+      charsPerFamily[defaultFontFamily] = new Set("WhiteboardRT");
     }
 
     return Fonts.loadFontFaces(
@@ -209,7 +209,7 @@ export class Fonts {
       ) {
         warnedNoFontFaceSet = true;
         console.warn(
-          "Excalidraw: there is no font set (`document.fonts`, or a worker's " +
+          "WhiteboardRT: there is no font set (`document.fonts`, or a worker's " +
             "`self.fonts`) to load the exported fonts into, so text is " +
             "measured and drawn with whatever fonts this environment has. " +
             "Load them yourself in `config.environment.loadFonts`.",
