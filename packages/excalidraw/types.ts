@@ -1024,6 +1024,7 @@ export interface ExcalidrawProps {
   gridModeEnabled?: boolean;
   objectsSnapModeEnabled?: boolean;
   libraryReturnUrl?: string;
+  libraryUrl?: string;
   theme?: Theme;
   // @TODO come with better API before v0.18.0
   name?: string;

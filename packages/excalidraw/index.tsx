@@ -91,6 +91,7 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
     zenModeEnabled,
     gridModeEnabled,
     libraryReturnUrl,
+    libraryUrl,
     theme,
     name,
     renderCustomStats,
@@ -234,6 +235,7 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
           zenModeEnabled={zenModeEnabled}
           gridModeEnabled={gridModeEnabled}
           libraryReturnUrl={libraryReturnUrl}
+          libraryUrl={libraryUrl}
           theme={theme}
           name={name}
           renderCustomStats={renderCustomStats}

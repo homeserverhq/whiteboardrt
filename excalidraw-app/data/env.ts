@@ -11,7 +11,7 @@ const sanitizeEnv = (raw: Record<string, unknown>): Record<string, string> =>
 
 export const loadRuntimeEnv = async (): Promise<Record<string, string>> => {
   try {
-    const res = await fetch("/env.json");
+    const res = await fetch("/env.json", { cache: "no-store" });
     if (!res.ok) {
       return {};
     }

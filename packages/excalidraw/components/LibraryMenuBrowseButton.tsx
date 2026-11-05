@@ -1,6 +1,8 @@
-import { VERSIONS } from "@excalidraw/common";
+import { DEFAULT_LIBRARY_URL, VERSIONS } from "@excalidraw/common";
 
 import { t } from "../i18n";
+
+import { useAppProps } from "./App";
 
 import type { ExcalidrawProps, UIAppState } from "../types";
 
@@ -13,12 +15,17 @@ const LibraryMenuBrowseButton = ({
   theme: UIAppState["theme"];
   id: string;
 }) => {
+  const appProps = useAppProps();
+  const libraryUrl =
+    appProps.libraryUrl ||
+    import.meta.env.VITE_APP_LIBRARY_URL ||
+    DEFAULT_LIBRARY_URL;
   const referrer =
     libraryReturnUrl || window.location.origin + window.location.pathname;
   return (
     <a
       className="library-menu-browse-button"
-      href={`${import.meta.env.VITE_APP_LIBRARY_URL}?target=${
+      href={`${libraryUrl}?target=${
         window.name || "_blank"
       }&referrer=${referrer}&useHash=true&token=${id}&theme=${theme}&version=${
         VERSIONS.excalidrawLibrary

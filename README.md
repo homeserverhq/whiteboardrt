@@ -28,27 +28,33 @@ The `.excalidraw` and `.excalidrawlib` file formats, MIME types, exported JSON t
 docker build --no-cache -t whiteboardrt:latest /path/to/excalidraw
 ```
 
-### Environment configuration
+### Runtime environment configuration
 
-Create an `env.json` file with your backend URLs:
+Deployment values are generated into `/env.json` inside the container at startup from environment variables. No `env.json` is shipped in the image or mounted from the host.
 
-```json
-{
-  "VITE_APP_WS_SERVER_URL": "http://your-room-server:80",
-  "VITE_APP_STORAGE_BACKEND": "http",
-  "VITE_APP_HTTP_STORAGE_BACKEND_URL": "http://your-storage-backend:8080/api/v2",
-  "VITE_APP_BACKEND_V2_GET_URL": "http://your-storage-backend:8080/api/v2/scenes",
-  "VITE_APP_BACKEND_V2_POST_URL": "http://your-storage-backend:8080/api/v2/scenes"
-}
-```
+| Variable | Alias | Default |
+| --- | --- | --- |
+| `VITE_APP_STORAGE_BACKEND` | `STORAGE_BACKEND` | empty |
+| `VITE_APP_HTTP_STORAGE_BACKEND_URL` | `HTTP_STORAGE_BACKEND_URL` | empty |
+| `VITE_APP_BACKEND_V2_GET_URL` | `BACKEND_V2_GET_URL` | empty |
+| `VITE_APP_BACKEND_V2_POST_URL` | `BACKEND_V2_POST_URL` | empty |
+| `VITE_APP_WS_SERVER_URL` | `SOCKET_SERVER_URL` | empty |
+| `VITE_APP_LIBRARY_URL` | `LIBRARY_URL` | `https://libraries.excalidraw.com` |
 
-`/env.json` is loaded at runtime and overrides build-time `VITE_APP_*` values. The image ships an empty `{}` default, so mount your file as shown below.
+`VITE_APP_*` names take precedence over their aliases. Changes require restarting the container; no image rebuild is needed.
+
+Only these six values are runtime-configurable. Other `VITE_APP_*` values are build-time settings and are not read from the environment at runtime.
 
 ### Docker run
 
 ```bash
 docker run -d -p 8080:80 \
-  -v ./env.json:/usr/share/nginx/html/env.json:ro \
+  -e VITE_APP_STORAGE_BACKEND=http \
+  -e VITE_APP_HTTP_STORAGE_BACKEND_URL=http://your-storage-backend:8080/api/v2 \
+  -e VITE_APP_BACKEND_V2_GET_URL=http://your-storage-backend:8080/api/v2/scenes \
+  -e VITE_APP_BACKEND_V2_POST_URL=http://your-storage-backend:8080/api/v2/scenes \
+  -e VITE_APP_WS_SERVER_URL=http://your-room-server:80 \
+  -e VITE_APP_LIBRARY_URL=https://libraries.excalidraw.com \
   whiteboardrt:latest
 ```
 

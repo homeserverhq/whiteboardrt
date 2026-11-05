@@ -98,6 +98,7 @@ import {
 
 import { updateStaleImageStatuses } from "./data/FileManager";
 import { FileStatusStore } from "./data/fileStatusStore";
+import { getRuntimeEnv } from "./data/env";
 import {
   importFromLocalStorage,
   importUsernameFromLocalStorage,
@@ -354,6 +355,7 @@ const ExcalidrawWrapper = () => {
   const excalidrawAPI = useExcalidrawAPI();
 
   const [errorMessage, setErrorMessage] = useState("");
+  const [libraryUrl, setLibraryUrl] = useState<string | undefined>(undefined);
   const isCollabDisabled = isRunningInIframe();
 
   const { editorTheme, appTheme, setAppTheme } = useHandleAppTheme();
@@ -419,6 +421,18 @@ const ExcalidrawWrapper = () => {
     // TODO maybe remove this in several months (shipped: 24-03-11)
     migrationAdapter: LibraryLocalStorageMigrationAdapter,
   });
+
+  useEffect(() => {
+    let mounted = true;
+    getRuntimeEnv().then((env) => {
+      if (mounted && env.VITE_APP_LIBRARY_URL) {
+        setLibraryUrl(env.VITE_APP_LIBRARY_URL);
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const [, forceRefresh] = useState(false);
 
@@ -886,6 +900,7 @@ const ExcalidrawWrapper = () => {
     >
       <Excalidraw
         aiEnabled={false}
+        libraryUrl={libraryUrl}
         viewportStatusFrame={viewportStatusFrame}
         userToFollow={userToFollow}
         onChange={onChange}
