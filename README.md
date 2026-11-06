@@ -1,3 +1,6 @@
+<p align="center">
+  <img alt="WhiteboardRT Logo" src="assets/imgs/whiteboardrt.png" width="256" height="256">
+</p>
 # WhiteboardRT
 
 WhiteboardRT is a modified fork of [Excalidraw](https://github.com/excalidraw/excalidraw), packaged as a self-hosted collaborative whiteboard.
