@@ -56,7 +56,7 @@ const config = {
       navbar: {
         title: "Excalidraw",
         logo: {
-          alt: "Excalidraw Logo",
+          alt: "WhiteboardRT Logo",
           src: "img/logo.svg",
         },
         items: [

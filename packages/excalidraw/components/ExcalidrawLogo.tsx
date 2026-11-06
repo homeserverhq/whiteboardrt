@@ -1,22 +1,16 @@
 import { PRODUCT_NAME } from "@excalidraw/common";
 
+import { WHITEBOARDRT_LOGO_DATA_URI } from "./whiteboardrtLogo";
+
 import "./ExcalidrawLogo.scss";
 
 const LogoIcon = () => (
-  <svg
-    viewBox="0 0 40 40"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+  <img
+    src={WHITEBOARDRT_LOGO_DATA_URI}
+    alt=""
     className="ExcalidrawLogo-icon"
-  >
-    <rect x="2" y="2" width="36" height="36" rx="8" fill="currentColor" />
-    <path
-      d="M10 14h20M10 21h15M10 28h10"
-      stroke="var(--color-logo-bg, #121212)"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-  </svg>
+    draggable={false}
+  />
 );
 
 const LogoText = () => (
