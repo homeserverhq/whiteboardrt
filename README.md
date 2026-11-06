@@ -50,18 +50,18 @@ Only these six values are runtime-configurable. Other `VITE_APP_*` values are bu
 ```bash
 docker run -d -p 8080:80 \
   -e VITE_APP_STORAGE_BACKEND=http \
-  -e VITE_APP_HTTP_STORAGE_BACKEND_URL=http://your-storage-backend:8080/api/v2 \
-  -e VITE_APP_BACKEND_V2_GET_URL=http://your-storage-backend:8080/api/v2/scenes \
-  -e VITE_APP_BACKEND_V2_POST_URL=http://your-storage-backend:8080/api/v2/scenes \
-  -e VITE_APP_WS_SERVER_URL=http://your-room-server:80 \
+  -e VITE_APP_HTTP_STORAGE_BACKEND_URL=http://whiteboardrt-storage-backend:8080/api/v2 \
+  -e VITE_APP_BACKEND_V2_GET_URL=http://whiteboardrt-storage-backend:8080/api/v2/scenes \
+  -e VITE_APP_BACKEND_V2_POST_URL=http://whiteboardrt-storage-backend:8080/api/v2/scenes \
+  -e VITE_APP_WS_SERVER_URL=http://whiteboardrt-server:80 \
   -e VITE_APP_LIBRARY_URL=https://libraries.excalidraw.com \
   whiteboardrt:latest
 ```
 
 Required infrastructure:
 
-- **room server** — WebSocket server for live collaboration
-- **storage backend** — HTTP API for scene/file storage
+- [**WhiteboardRT Server**](https://github.com/homeserverhq/whiteboardrt-server) — WebSocket server for live collaboration
+- [**WhiteboardRT Storage Backend**](https://github.com/homeserverhq/whiteboardrt-storage-backend) — HTTP API for scene/file storage
 - **Redis** — storage backend database
 
 ## Development
