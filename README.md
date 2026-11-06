@@ -53,7 +53,7 @@ docker run -d -p 8080:80 \
   -e VITE_APP_HTTP_STORAGE_BACKEND_URL=http://whiteboardrt-storage-backend:8080/api/v2 \
   -e VITE_APP_BACKEND_V2_GET_URL=http://whiteboardrt-storage-backend:8080/api/v2/scenes \
   -e VITE_APP_BACKEND_V2_POST_URL=http://whiteboardrt-storage-backend:8080/api/v2/scenes \
-  -e VITE_APP_WS_SERVER_URL=http://whiteboardrt-server:80 \
+  -e VITE_APP_WS_SERVER_URL=http://whiteboardrt-server:8080 \
   -e VITE_APP_LIBRARY_URL=https://libraries.excalidraw.com \
   whiteboardrt:latest
 ```
